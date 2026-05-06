@@ -1,20 +1,21 @@
 package com.example.back.services;
 
 
-
-import com.back.entity.Submission;
-import com.back.repository.SubmissionRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import com.example.back.entity.Submission;
+import com.example.back.repository.SubmissionRepo;
+
+import lombok.RequiredArgsConstructor;
+
 @Service
 @RequiredArgsConstructor
-public class SubmissionService {
+public class SubmissionSer {
 
     
-    private final SubmissionReporepo;
+    private final SubmissionRepo repo;
 
     public Submission create(Submission submission) {
         return repo.save(submission);

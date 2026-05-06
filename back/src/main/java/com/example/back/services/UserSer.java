@@ -1,23 +1,19 @@
 package com.example.back.services;
-
-
-
-import com.back.entity.User;
-import com.back.repository.UserRepository;
-
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import com.example.back.entity.User;
+import com.example.back.repository.UserRepo;
 
 @Service
 @RequiredArgsConstructor
 public class UserSer {
 
     
-    private final UserRepository repo;
+    private final UserRepo repo;
 
     public User create(User user) {
         return repo.save(user);

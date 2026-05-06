@@ -1,12 +1,17 @@
 package com.example.back.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+
+import com.example.back.entity.Issue;
+import com.example.back.repository.IssueRepo;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class IssuseCon {
+public class IssueSer {
 
     private final IssueRepo repo;
 
@@ -25,14 +30,15 @@ public class IssuseCon {
     
     public Issue update(Long id, Issue newIssue) {
         Issue issue = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Issue not found"));
+            .orElseThrow(() -> new RuntimeException("Issue not found"));
 
-        issue.setTitle(newIssue.getTitle());
-        issue.setDescription(newIssue.getDescription());
-        issue.setCreatedAt(newIssue.getCreatedAt());
-        issue.setUser(newIssue.getUser());
+    issue.setType(newIssue.getType());
+    issue.setDescription(newIssue.getDescription());
+    issue.setSeverity(newIssue.getSeverity());
+    issue.setSuggestion(newIssue.getSuggestion());
+    issue.setReport(newIssue.getReport());
 
-        return repo.save(issue);
+    return repo.save(issue);
     }
 
     public void delete(Long id) {

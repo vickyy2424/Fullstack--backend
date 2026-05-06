@@ -32,11 +32,11 @@ public class ReportsSer {
         Report report = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Report not found"));
 
-        report.setTitle(newReport.getTitle());
-        report.setDescription(newReport.getDescription());
-        report.setCreatedAt(newReport.getCreatedAt());
-        report.setUser(newReport.getUser());
-
+        report.setOverallScore(newReport.getOverallScore());
+        report.setReadabilityScore(newReport.getReadabilityScore());
+        report.setMaintainabilityScore(newReport.getMaintainabilityScore());
+        report.setComplexityScore(newReport.getComplexityScore());
+        report.setSubmission(newReport.getSubmission());
         return repo.save(report);
     }
 
